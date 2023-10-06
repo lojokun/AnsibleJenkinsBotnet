@@ -12,4 +12,4 @@ Once inside the machine, you would need to connect via ssh to all targets so the
 
 ## execute-command-all.yml
 This playbook executes a command to all targets. Run this playbook like this:<br>
-`ansible-playbook playbooks/execute-command-all.yml --extra-vars input_command="pwd"` where pwd can be any linux command. There is a small issue right now and the contents of ls cannot be shown. Also, this playbook is meant to be executed by Jenkins in the future.
+`ansible-playbook playbooks/execute-command-all.yml --extra-vars input_command="pwd" -i inventory` where pwd can be any linux command. There is a small issue right now and the contents of ls cannot be shown. Also, this playbook is meant to be executed by Jenkins in the future.
