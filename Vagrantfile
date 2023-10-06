@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
 		master.vm.box = "generic/alpine38"
 	    master.vm.hostname = "master"
 		master.vm.network "private_network", ip: "10.0.0.2", netmask: "255.255.255.0", auto_config: true
-        master.vm.synced_folder "./ansible/", "~/ansible"
+        master.vm.synced_folder "./ansible/", "/home/vagrant/ansible"
         master.vm.provision "shell", path: "./scripts/master_init.sh"
 	end
 
