@@ -1,0 +1,24 @@
+AnsibleJenkinsBotnet
+
+A Jenkins node that has pipelines to execute ansible-playbooks on all target nodes. These playbooks should execute a 
+command that is taken as a variable in the jenkins pipeline.
+
+Two jobs for the Jenkins:
+
+1) Job for all target nodes:
+  - This executes an ansible-playbook on all target nodes.
+  - The job has 1 variable:
+    - command: <The command to be executed on all target nodes)
+  - This variable is passed to the ansible-playbook which then gets executed on all target nodes
+
+2) Job for a specific target node:
+  - This executes an ansible-playbook on a specified targed node.
+  - The job has 2 variables:
+    - target: <The name of the target we want to execute the playbook for, either fqdn, ip or just a name>
+    - command: <The command to be executed on the target node>
+  - These variables are passed to the ansible-playbook which then gets executed on the specified target nodes
+
+One more idea of a job (Execute playbook on multiple specified target nodes)
+
+Ansible playbooks:
+

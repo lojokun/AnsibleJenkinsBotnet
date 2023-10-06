@@ -1,0 +1,8 @@
+[targets]
+target1  ansible_host=10.0.0.5  ansible_ssh_private_key_file=/home/vagrant/keys/target1  ansible_python_interpreter=/usr/bin/python3
+target2  ansible_host=10.0.0.6  ansible_ssh_private_key_file=/home/vagrant/keys/target2  ansible_python_interpreter=/usr/bin/python3
+target3  ansible_host=10.0.0.7  ansible_ssh_private_key_file=/home/vagrant/keys/target3  ansible_python_interpreter=/usr/bin/python3
+
+[targets:vars]
+ansible_connection=ssh
+ansible_user=vagrant
