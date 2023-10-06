@@ -7,7 +7,6 @@
     command_output_full:
       stdout: will be overridden below
     command_output: "{{ command_output_full.stdout_lines }}"
-    input_command: "pwd"
   tasks:
   - name: Run command on all targets
     command: "{{ input_command }}"
