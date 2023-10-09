@@ -6,7 +6,9 @@ Vagrant.configure("2") do |config|
 	    master.vm.hostname = "master"
 		master.vm.network "private_network", ip: "10.0.0.2", netmask: "255.255.255.0", auto_config: true
         master.vm.synced_folder "./ansible/", "/home/vagrant/ansible"
+		master.vm.synced_folder "./jenkins/", "/home/vagrant/jenkins"
         master.vm.provision "shell", path: "./scripts/master_init.sh"
+		master.vm.network "forwarded_port", guest: 8080, host: 8080
 	end
 
 	# => Target1
