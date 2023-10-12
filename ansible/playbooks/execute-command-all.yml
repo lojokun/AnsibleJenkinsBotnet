@@ -3,14 +3,12 @@
 - hosts: all
   become: yes
   gather_facts: yes
-  vars:
-    command_output_full:
-      stdout: will be overridden below
-    command_output: "{{ command_output_full.stdout_lines }}"
+
   tasks:
   - name: Run command on all targets
     command: "{{ input_command }}"
     register: command_output_full
+
   - name: Print commands
     debug: 
-      msg: "{{command_output}}"
+      var: command_output_full.stdout
