@@ -1,0 +1,33 @@
+pipeline {
+    agent { label "master" }
+    options {
+        disableConcurrentBuilds()
+        timeout(time: 10, unit: 'MINUTES')
+    }
+    stages {
+        stage('Clone') {
+            steps {
+                checkout scm
+            }
+        }
+        stage('Execute playbook') {
+            options {
+                timeout(time: 5, unit: 'MINUTES')
+            }
+            steps {
+                sh "ansible-playbook -i /home/vagrant/ansible/inventory ${EXECUTE_PLAYBOOK} -e INPUT_COMMAND=${COMMAND}"
+            }
+        }
+    }
+    post {
+        success {
+            echo 'Successfully executed command on target nodes!'
+        }
+        failure {
+            echo 'Something went wrong!'
+        }
+        unstable {
+            echo 'Something went wrong again!'
+        }
+    }
+}
