@@ -6,7 +6,7 @@
 
   tasks:
   - name: Run command on all targets
-    command: "{{ input_command }}"
+    command: "{{ INPUT_COMMAND }}"
     register: command_output_full
 
   - name: Print commands

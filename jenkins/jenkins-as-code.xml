@@ -1,5 +1,3 @@
-
-
 jenkins:
   systemMessage: "Jenkins configured automatically by Jenkins Configuration as Code plugin\n\n"
   globalNodeProperties:
@@ -40,6 +38,9 @@ tool:
     installations:
       - name: git
         home: /usr/local/bin/git
+
+jobs:
+  - file: /home/vagrant/jenkins/seed_jobs.groovy
 
 credentials:
   system:
